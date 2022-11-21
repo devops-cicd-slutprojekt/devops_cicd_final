@@ -1,5 +1,5 @@
 # Team name
-- Gagman
+### Gagman
 
 ## Team members
 - Erik Gagner
