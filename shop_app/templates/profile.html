@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block header %}
+<h1>{% block title %}Welcome to the shop{% endblock %}</h1>
+{% if g.user %}
+<span class="message">Hi {{ g.user[1] }}!</span>
+{% endif %}
+{% endblock %}
+
+{% block content %}{% endblock %}

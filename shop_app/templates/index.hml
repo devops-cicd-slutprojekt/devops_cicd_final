@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Shop App{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('profile') }}">My Page</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+      <header>
+        <div>
+          <h1>Welcome to the shop!</h1>
+        </div>
+      </header>
+{% endblock %}
