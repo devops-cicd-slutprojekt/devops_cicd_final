@@ -8,5 +8,6 @@
 ## Work Diary
 
 ### Day 1
+Decided on using GitLab Flow.
 
 ### Day 3
