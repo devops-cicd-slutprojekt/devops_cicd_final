@@ -14,3 +14,7 @@ docker build -t shop_app .
 docker tag shop_app ghcr.io/devops-cicd-slutprojekt/shop_app
 docker login ghcr.io
 docker run -dp 5000:5000 ghcr.io/devops-cicd-slutprojekt/shop_app
+
+
+## Minikube
+minikube service shop-app-pod
