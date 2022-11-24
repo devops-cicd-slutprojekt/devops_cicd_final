@@ -8,6 +8,12 @@
 ## Work Diary
 
 ### Day 1
-Decided on using GitLab Flow.
+Spent all day "pair-programming"
+- Decided on using GitLab Flow.
+- Laid the groundwork for future testing (Cov, Lint)
+- Created and tested first implementation of github actions
+- Docker ghcr tag/image created and pushed manually
+- Kubernetes pod manually pulled from docker image (ghcr.io) and deployed as a service
+
 
 ### Day 3
