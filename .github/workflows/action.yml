@@ -38,18 +38,3 @@ jobs:
     - name: Test with pytest
       run: |
         pytest tests/*
-
-    - name: Run the Action
-      uses: devops-infra/action-pull-request@v0.5.3
-      with:
-        github_token: ${{ secrets.Auto_PR }}
-        source_branch: ${GITHUB_REF##*/}
-        target_branch: Dev
-        title: Automatic pull request
-        body: "**Automated pull request**"
-        reviewer: 
-        label: enhancement
-        milestone: My milestone
-        new_string: "** Automatic pull request**"
-        get_diff: true
-        allow_no_diff: false
