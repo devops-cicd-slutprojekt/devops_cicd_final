@@ -43,4 +43,3 @@ jobs:
 
     - name: Create Pull Request
       uses: peter-evans/create-pull-request@v4
-      path: https://github.com/devops-cicd-slutprojekt/devops_cicd_final/tree/Dev
