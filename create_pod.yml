@@ -10,4 +10,4 @@ spec:
     - name: shop-app
       image: ghcr.io/devops-cicd-slutprojekt/shop_app:latest
   imagePullSecrets:
-    - name: devops-cicd-regcred
+    - name: regcred
