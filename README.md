@@ -6,7 +6,7 @@ For Linux/Mac: source .venv/bin/activate | For windows: .\.venv/Scripts/activate
 pip install -r requirements.txt\
 pre-commit sample-config > .precommit-config.yaml\
 pre-commit install\
-pre-commit run --all-files
+pre-commit run --all-files\
 Install coverage gutter in vscode
 
 pytest --cov=shop_app tests
