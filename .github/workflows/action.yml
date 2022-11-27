@@ -53,8 +53,6 @@ jobs:
         cond: ${{ env.BRANCH == 'main' }}
         if_true: "latest"
         if_false: "${{ env.BRANCH }}_${{ github.sha }}"
-    # - name: Set branch tag
-    #   run: $docker_tag >> "${{ steps.condval.outputs.value }}"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
