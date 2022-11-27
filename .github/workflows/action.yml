@@ -2,11 +2,14 @@ name: Python application
 
 on:
   push:
-
+    branches:
+    - 'Dev'
+    - 'Main'
+    - 'feature/**'
   pull_request:
     branches:
-    - '!Dev'
-    - '!main'
+    - 'Dev'
+    - 'main'
 
 permissions:
   contents: read
