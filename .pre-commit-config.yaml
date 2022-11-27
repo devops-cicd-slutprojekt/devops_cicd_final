@@ -22,7 +22,7 @@ repos:
 -   repo: local
     hooks:
     -   id: pytest-check
-        name: pytest-check
+        name: unit-testing
         entry: python3 -m pytest --cov=shop_app tests
         language: system
         pass_filenames: false
