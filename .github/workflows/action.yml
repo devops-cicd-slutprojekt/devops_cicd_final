@@ -2,7 +2,10 @@ name: Python application
 
 on:
   push:
-
+    branches:
+    - 'Dev'
+    - 'Main'
+    - 'feature/**'
   pull_request:
     branches:
     - 'Dev'
