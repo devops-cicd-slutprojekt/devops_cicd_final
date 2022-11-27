@@ -16,7 +16,7 @@ jobs:
             -
                 name: Set tag
                 run: |
-                  if [[ "${{ env.BRANCH}}" == 'main']]
+                  if [[ "${{ env.BRANCH}}" == "main" ]]
                   then
                     $docker_tag == 'latest'
                   else
