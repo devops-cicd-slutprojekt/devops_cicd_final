@@ -46,15 +46,15 @@ jobs:
     - name: get branch name
       run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-    - name: Set docker tag
-      run: |
-        if [[ "${{ env.BRANCH }}" == 'main' ]]
-        then
-          $docker_tag = "latest"
-        else
-          $docker_tag = "${{ env.BRANCH }}_${{ github.sha }}"
-        fi
-      shell: bash
+    - name: Get branch tag
+    - uses: haya14busa/action-cond@v1
+      id: condval
+      with:
+        cond: ${{ env.BRANCH == 'main' }}
+        if_true: "latest"
+        if_false: "${{ env.BRANCH }}_${{ github.sha }}"
+    - name: Set branch tag
+      run: $docker_tag = "${{ steps.condval.outputs.value }}"
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
