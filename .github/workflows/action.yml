@@ -4,9 +4,9 @@ on:
   push:
 
   pull_request:
-    branches_ignore:
-    - 'Dev'
-    - 'main'
+    branches:
+    - '!Dev'
+    - '!main'
 
 permissions:
   contents: read
