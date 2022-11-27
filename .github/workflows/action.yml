@@ -46,18 +46,13 @@ jobs:
     - name: get branch name
       run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
 
-    - name: Set tag if main
+    - name: Set docker tag
       run: |
         if [[ "${{ env.BRANCH}}" == 'main' ]]
         then
           $docker_tag = "latest"
-        fi
-
-    - name: Set tag if not main
-      run: |
-        if [[ "${{ env.BRANCH}}" != 'main' ]]
-        then
-          $docker_tag = "not latest"
+        else
+          $docker_tag = "${{ env.BRANCH }}_${{ github.sha }}"
         fi
 
     - name: Set up Docker Buildx
