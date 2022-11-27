@@ -32,6 +32,4 @@ jobs:
                 with:
                     context: .
                     push: true
-                    tags: shop_app:${{ env.BRANCH }}
-                    build-args: |
-                        BRANCH=${{ env.BRANCH }}
+                    tags: shop_app:${{ env.BRANCH }}/${{ github.sha }}
