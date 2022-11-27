@@ -16,4 +16,6 @@ Spent all day "pair-programming"
 - Kubernetes pod manually pulled from docker image (ghcr.io) and deployed as a service
 
 
-### Day 3
+### Day 2
+Pair-programming
+- Implemented pre-commit testing with pylint
