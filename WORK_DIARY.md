@@ -19,3 +19,8 @@ Spent all day "pair-programming"
 ### Day 2
 Pair-programming
 - Implemented pre-commit testing with pylint
+
+
+### Day 3
+Pair-programming
+- GitHub Action now tags, builds and pushes docker container to ghcr. Tags container with 'latest' if main branch
