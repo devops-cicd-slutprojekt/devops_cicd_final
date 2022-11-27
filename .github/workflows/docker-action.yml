@@ -32,4 +32,4 @@ jobs:
                 with:
                     context: .
                     push: true
-                    tags: ghcr.io/devops-cicd-slutprojekt/devops21_cicd_final/shop_app:${{ env.BRANCH }}_${{ github.sha }}
+                    tags: ghcr.io/devops-cicd-slutprojekt/shop_app:${{ env.BRANCH }}_${{ github.sha }}
