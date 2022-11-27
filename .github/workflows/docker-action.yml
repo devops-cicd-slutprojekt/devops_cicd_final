@@ -20,7 +20,7 @@ jobs:
                   then
                     $docker_tag == "latest"
                   else
-                    $docker_tag == "${{ env.BRANCH }}_${{ github.sha }}""
+                    $docker_tag == "${{ env.BRANCH }}_${{ github.sha }}"
                   fi
 
             -
