@@ -32,4 +32,4 @@ jobs:
                 with:
                     context: .
                     push: true
-                    tags: shop_app:${{ env.BRANCH }}/${{ github.sha }}
+                    tags: shop_app:${{ env.BRANCH }}_${{ github.sha }}
