@@ -1,4 +1,8 @@
 # devops_cicd_final
+Branch name standard for ANY coding you do:
+feature/<name of your feature>
+
+### Get up and running with the environment
 On linux install virtualenv: apt install python3.10-venv
 
 python3 -m venv .venv\
