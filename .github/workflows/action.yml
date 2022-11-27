@@ -48,10 +48,11 @@ jobs:
 
     - name: Set docker tag
       run: |
-        if [[ "${{ env.BRANCH}}" == 'main' ]]
+        if [[ "${{ env.BRANCH} }" == 'main' ]]
         then
           $docker_tag = "latest"
-        else
+        if [[ "${{ env.BRANCH }}" != 'main' ]]
+        then
           $docker_tag = "${{ env.BRANCH }}_${{ github.sha }}"
         fi
 
