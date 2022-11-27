@@ -42,7 +42,22 @@ jobs:
 
     - name: Test with pytest
       run: |
-        python3 -m pytest tests/*
+        python3 -m pytest --cov=shop_app tests/*
+
+    - name: Coverage comment
+      id: coverage_comment
+      uses: py-cov-action/python-coverage-comment-action@v3
+      with:
+        GITHUB_TOKEN: ${{ github.GH_TOKEN }}
+
+    - name: Store Pull Request comment to be posted
+      uses: actions/upload-artifact@v3
+      if: steps.coverage_comment.outputs.COMMENT_FILE_WRITTEN == 'true'
+      with:
+        # If you use a different name, update COMMENT_ARTIFACT_NAME accordingly
+        name: python-coverage-comment-action
+        # If you use a different name, update COMMENT_FILENAME accordingly
+        path: python-coverage-comment-action.txt
 
     - name: get branch name
       run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV
