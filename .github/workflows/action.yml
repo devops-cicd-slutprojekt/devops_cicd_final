@@ -71,4 +71,4 @@ jobs:
       with:
         context: .
         push: true
-        tags: ghcr.io/devops-cicd-slutprojekt/shop_app:$docker_tag
+        tags: ghcr.io/devops-cicd-slutprojekt/shop_app:${{ docker_tag }}
