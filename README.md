@@ -35,7 +35,8 @@ python -m pytest --cov=shop_app tests/unit
 python -m pytest tests/integration
 
 ## Postman - API Test
-docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman,readonly postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.3:5000"
+docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman,readonly postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.2:5000"
+tss
 
 ### xml junit result
 docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.3:5000" --timeout-request=100 --reporters junit --reporter-junit-export="/postman/newman-report.xml"
