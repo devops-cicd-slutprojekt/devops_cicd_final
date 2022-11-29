@@ -53,7 +53,7 @@ jobs:
       with:
         cond: ${{ env.BRANCH == 'main' }}
         if_true: "latest"
-        if_false: "${{ env.BRANCH }}_${{ github.sha }}"
+        if_false: "${{ env.BRANCH }}_${{ github.sha }}" #Make it short sha
 
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v2
