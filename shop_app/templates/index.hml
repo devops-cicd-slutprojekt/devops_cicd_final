@@ -10,7 +10,7 @@
 {% block content %}
       <header>
         <div>
-          <h1>Welcome to the the crib!</h1>
+          <h1>Welcome to the index.html!</h1>
         </div>
       </header>
 {% endblock %}
