@@ -24,3 +24,16 @@ docker run -dp 5000:5000 ghcr.io/devops-cicd-slutprojekt/shop_app
 
 ## Minikube
 minikube service shop-app-pod
+
+## docker
+docker create network my-network
+.\scripts\db.sh
+.\scripts\flask.sh
+
+## Postman
+[POST] http://127.0.0.1:5000/product
+{
+    "name" : "{{$randomProduct}}",
+
+    "price" : {{$randomPrice}}
+}
