@@ -42,7 +42,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"saw\",\n    \"price\": 889\n}",
+					"raw": "{\n    \"name\": \"tester-{{$randomProduct}}\",\n    \"price\": {{$randomPrice}}\n}",
 					"options": {
 						"raw": {
 							"language": "json"
