@@ -23,9 +23,11 @@ def create_app():
     db.init_app(app)
 
     # pylint: disable-next=C0415
-    from . import profile, product, auth
+    from . import profile, product, auth, testerproducts, owners
     app.register_blueprint(auth.bp)
     app.register_blueprint(profile.bp)
     app.register_blueprint(product.bp)
+    app.register_blueprint(testerproducts.bp)
+    app.register_blueprint(owners.bp)
 
     return app

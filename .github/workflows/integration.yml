@@ -1,0 +1,26 @@
+name: Integration test webb
+
+on:
+    push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Start DB
+        run: |
+          docker network create my-network
+          docker run -d --network my-network -e MYSQL_DATABASE=example -e MYSQL_USER=username -e MYSQL_PASSWORD=password -e MYSQL_RANDOM_ROOT_PASSWORD=yes -p 3306:3306 -v ${{ github.workspace }}/sql:/docker-entrypoint-initdb.d --name mysql mysql:8
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag my-flask
+      - name: verify database
+        run: |
+          mysql --version
+          mysql -h127.0.0.1 -Dexample -u username -ppassword -e 'select * from products;'
+      - name: Run flask server
+        run: docker run -d --network my-network -e MYSQL_HOST=mysql -e MYSQL_PASSWORD=password -p 5000:5000 my-flask
+      - name: Pytest
+        run: |
+          pip install -r requirements.txt
+          pytest tests/integration

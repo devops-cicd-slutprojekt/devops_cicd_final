@@ -23,7 +23,7 @@ repos:
     hooks:
     -   id: pytest-check
         name: unit-testing
-        entry: python3 -m pytest --cov=shop_app tests
+        entry: python -m pytest --cov=shop_app tests/unit
         language: system
         pass_filenames: false
         always_run: true

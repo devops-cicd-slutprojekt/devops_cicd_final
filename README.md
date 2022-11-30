@@ -8,7 +8,7 @@ On linux install virtualenv: apt install python3.10-venv
 python3 -m venv .venv\
 For Linux/Mac: source .venv/bin/activate | For windows: .\.venv/Scripts/activate\
 pip install -r requirements.txt\
-pre-commit sample-config > .precommit-config.yaml\
+pre-commit sample-config > .pre-commit-config.yaml\
 pre-commit install\
 pre-commit run --all-files\
 Install coverage gutter in vscode
@@ -24,3 +24,27 @@ docker run -dp 5000:5000 ghcr.io/devops-cicd-slutprojekt/shop_app
 
 ## Minikube
 minikube service shop-app-pod
+
+## docker
+docker create network my-network
+.\scripts\db.sh
+.\scripts\flask.sh
+
+## pytest
+python -m pytest --cov=shop_app tests/unit
+python -m pytest tests/integration
+
+## Postman - API Test
+docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman,readonly postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.2:5000"
+tss
+
+### xml junit result
+docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.3:5000" --timeout-request=100 --reporters junit --reporter-junit-export="/postman/newman-report.xml"
+
+
+[POST] http://127.0.0.1:5000/product
+{
+    "name" : "{{$randomProduct}}",
+
+    "price" : {{$randomPrice}}
+}

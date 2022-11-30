@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-final
+  labels:
+    app: flask-final
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: flask-final
+
+  template:
+    metadata:
+      labels:
+        app: flask-final
+
+
+    spec:
+      terminationGracePeriodSeconds: 1
+      containers:
+      - name: flask-image
+
+        image: ghcr.io/devops-cicd-slutprojekt/shop_app:latest
+
+        ports:
+        - containerPort: 5000
+        imagePullPolicy: Always
+
+        env:
+        - name: MYSQL_HOST
+          value: mysql.default.svc.cluster.local
+        - name: MYSQL_ROOT_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-root-password
+        - name: MYSQL_USER
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+
+              key: mysql-user
+
+        - name: MYSQL_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-password
+
+        - name: MYSQL_DATABASE
+          valueFrom:
+            secretKeyRef:
+              name: mysql-secret
+              key: mysql-database
+      imagePullSecrets:
+      - name: regcred
