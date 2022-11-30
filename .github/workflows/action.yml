@@ -42,7 +42,7 @@ jobs:
 
     - name: Test with pytest
       run: |
-        python3 -m pytest --cov=shop_app tests/*
+        python3 -m pytest --cov=shop_app tests/unit
 
     - name: get branch name
       run: echo "BRANCH=${GITHUB_REF##*/}" >> $GITHUB_ENV

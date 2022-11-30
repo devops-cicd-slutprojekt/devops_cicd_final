@@ -26,3 +26,9 @@ Pair-programming
 - GitHub Action now tags, builds and pushes docker container to ghcr. Tags container with 'latest' if main branch
 - Display coverage in runner terminal
 - Pre-commit now runs unit-tests
+
+### Day 4
+Pair-programming
+- Integration tests
+- Workflow/pipeline for integration testing
+- Feature programming for web app

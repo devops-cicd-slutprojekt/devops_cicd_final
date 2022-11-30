@@ -2,10 +2,12 @@
 <title>{% block title %}{% endblock %} - Flaskr</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-    <h1>Flaskr</h1>
+    <h1>DevOps CICD</h1>
     <ul>
         {% if g.user %}
         <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+        <li><a href="/product">Products</a>
+        <li><a href="/testerproduct">Test Generated Products</a>
             {% else %}
         <li><a href="{{ url_for('auth.register') }}">Register</a>
         <li><a href="{{ url_for('auth.login') }}">Log In</a>
