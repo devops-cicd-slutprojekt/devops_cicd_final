@@ -8,7 +8,7 @@ On linux install virtualenv: apt install python3.10-venv
 python3 -m venv .venv\
 For Linux/Mac: source .venv/bin/activate | For windows: .\.venv/Scripts/activate\
 pip install -r requirements.txt\
-pre-commit sample-config > .precommit-config.yaml\
+pre-commit sample-config > .pre-commit-config.yaml\
 pre-commit install\
 pre-commit run --all-files\
 Install coverage gutter in vscode
