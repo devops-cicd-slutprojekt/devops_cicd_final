@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: flask-final
+  name: shop-app
   labels:
-    app: flask-final
+    app: shop-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: flask-final
+      app: shop-app
 
   template:
     metadata:
       labels:
-        app: flask-final
+        app: shop-app
 
 
     spec:
