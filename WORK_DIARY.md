@@ -32,3 +32,10 @@ Pair-programming
 - Integration tests
 - Workflow/pipeline for integration testing
 - Feature programming for web app
+
+### Day 5
+Pair-programming
+- Kubernetes deployment
+- Added features for inner and outer loop
+- Final polish
+- Took screenshots

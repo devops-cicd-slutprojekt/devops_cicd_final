@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: "sv1"
+  name: "shop-service"
 spec:
   type: "NodePort"
   ports:
@@ -11,4 +11,4 @@ spec:
     protocol: TCP
   sessionAffinity: "ClientIP"
   selector:
-    app: flask-final
+    app: shop-app

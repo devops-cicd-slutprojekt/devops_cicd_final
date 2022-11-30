@@ -13,38 +13,35 @@ pre-commit install\
 pre-commit run --all-files\
 Install coverage gutter in vscode
 
-pytest --cov=shop_app tests
-
 ## Docker ghcr.io
 docker build -t shop_app .\
 docker tag shop_app ghcr.io/devops-cicd-slutprojekt/shop_app\
 docker login ghcr.io\
-docker run -dp 5000:5000 ghcr.io/devops-cicd-slutprojekt/shop_app
+docker run -dp 5000:5000 ghcr.io/devops-cicd-slutprojekt/shop_app:latest
 
 
-## Minikube
-minikube service shop-app-pod
+## Minikube to launch website
+minikube service shop-service
 
-## docker
-docker create network my-network
+## To run the environment on localy with docker
+docker network create my-network
 .\scripts\db.sh
 .\scripts\flask.sh
 
-## pytest
+## pytest (python3 if running on UNIX)
 python -m pytest --cov=shop_app tests/unit
 python -m pytest tests/integration
 
 ## Postman - API Test
-docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman,readonly postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.2:5000"
-tss
-
-### xml junit result
-docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://172.18.0.3:5000" --timeout-request=100 --reporters junit --reporter-junit-export="/postman/newman-report.xml"
-
-
+In postman import the file 'scripts/devops_cicd.postman_collection.json
 [POST] http://127.0.0.1:5000/product
 {
     "name" : "{{$randomProduct}}",
 
     "price" : {{$randomPrice}}
 }
+
+docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman,readonly postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://127.0.0.1:5000"
+
+### xml junit result
+docker run --network=my-network -t --rm --mount type=bind,source="$(pwd)"/scripts/,target=/postman postman/newman:alpine run /postman/devops_cicd.postman_collection.json --env-var="HOST=http://127.0.0.1:5000" --timeout-request=100 --reporters junit --reporter-junit-export="/postman/newman-report.xml"
