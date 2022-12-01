@@ -7,11 +7,11 @@
         {% if g.user %}
         <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
         <li><a href="/product">Products</a>
-        <li><a href="/testerproduct">Test Generated Products</a>
+        <!-- <li><a href="/testerproduct">Test Generated Products</a> -->
             {% else %}
         <li><a href="{{ url_for('auth.register') }}">Register</a>
         <li><a href="{{ url_for('auth.login') }}">Log In</a>
-        <li><a href="/owners">Owners</a>
+        <!-- <li><a href="/owners">Owners</a> -->
             {% endif %}
     </ul>
 </nav>
