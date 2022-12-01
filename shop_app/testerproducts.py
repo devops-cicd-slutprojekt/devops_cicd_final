@@ -3,7 +3,7 @@ from flask import (
 )
 from shop_app.db import get_db
 
-bp = Blueprint('testerproduct', __name__, url_prefix='/testerproduct')
+bp = Blueprint('testerproduct', __name__, url_prefix='/ASDtesterproduct')
 
 
 def include_column_names(resultset, description):
